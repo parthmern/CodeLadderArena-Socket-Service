@@ -52,7 +52,7 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script: |
           sudo docker pull pptl8685/socket-service:latest
-          sudo docker stop web-app || true
+          sudo docker stop web-app || true 
           sudo docker rm web-app || true
           sudo docker run -d --name web-app -p ${{ secrets.PORT }}:${{ secrets.PORT }} pptl8685/socket-service:latest
           
