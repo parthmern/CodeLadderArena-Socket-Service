@@ -29,7 +29,7 @@ io.on("connection", (socket) => {
 
     socket.on("setUserId", async (userId) => {
         console.log("Setting user id to connection id", userId, socket.id);
-        redisCache.set(userId, socket.id);
+        redisCache.set(userId, socket.id); 
         socket.emit("confirmSetUserId", userId); 
     });
 
