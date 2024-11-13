@@ -17,7 +17,7 @@ const CLIENTSIDE_URL = process.env.CLIENTSIDE_URL;
 
 const io = new Server(httpServer, { 
     cors: {
-        origin: ["http://127.0.0.1:5500", CLIENTSIDE_URL],
+        origin: ["http://127.0.0.1:5500", CLIENTSIDE_URL, "https://submissionservice.parthmern.store"],
         methods: ["GET", "POST"],
         credentials: true
     }
