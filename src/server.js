@@ -14,6 +14,19 @@ const redisCache = new Redis({
     password: process.env.REDIS_PASSWORD,                
 });
 
+redisCache.on('connect', () => {
+    console.log('Redis client connected successfully!');
+});
+
+redisCache.on('ready', () => {
+    console.log('Redis client is ready to use!');
+});
+
+redisCache.on('error', (err) => {
+    console.error('Error connecting to Redis:', err);
+});
+
+
 const CLIENTSIDE_URL = process.env.CLIENTSIDE_URL;
 
 const io = new Server(httpServer, { 
