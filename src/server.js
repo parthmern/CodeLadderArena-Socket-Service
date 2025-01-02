@@ -10,7 +10,8 @@ const app = express();
 const httpServer = createServer(app); // http server using express app
 const redisCache = new Redis({
     host: process.env.REDIS_HOST,  
-    port: 6379,                  
+    port: process.env.REDIS_PORT,
+    password: process.env.REDIS_PASSWORD,                
 });
 
 const CLIENTSIDE_URL = process.env.CLIENTSIDE_URL;

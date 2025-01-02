@@ -40,6 +40,7 @@ jobs:
           PORT=${{ secrets.PORT }}
           REDIS_PORT=${{ secrets.REDIS_PORT }}
           REDIS_HOST=${{ secrets.REDIS_HOST }}
+          REDIS_PASSWORD: ${{ secrets.REDIS_PASSWORD }}
 
     - name: Verify Pushed Image
       run: docker pull pptl8685/socket-service:latest 
