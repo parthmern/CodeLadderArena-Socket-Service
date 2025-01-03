@@ -37,6 +37,7 @@ jobs:
         file: ./Dockerfile
         push: true
         tags: pptl8685/socket-service-scs:latest  
+        no-cache: true
         build-args: |
           PORT=${{ secrets.PORT }}
           REDIS_PORT=${{ secrets.REDIS_PORT }}
@@ -57,5 +58,4 @@ jobs:
           sudo docker pull pptl8685/socket-service-scs:latest
           sudo docker stop web-app-scs || true 
           sudo docker rm web-app-scs || true
-          sudo docker run -d --name web-app-scs -p ${{ secrets.PORT }}:${{ secrets.PORT }} pptl8685/socket-service-scs:latest
-          
+          sudo docker run -d --name web-app-scs -p ${{ secrets.PORT }}:${{ secrets.PORT }} -e REDIS_PORT=${{ secrets.REDIS_PORT }} -e REDIS_HOST=${{ secrets.REDIS_HOST }} -e REDIS_PASSWORD=${{ secrets.REDIS_PASSWORD }} pptl8685/socket-service-scs:latest
