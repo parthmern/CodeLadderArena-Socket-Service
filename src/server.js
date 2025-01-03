@@ -12,7 +12,7 @@ const redisCache = new Redis({
     host: process.env.REDIS_HOST,  
     port: "17577",
     password: "vCllaXi36UI32HKDRE2XFUcqwPIfSsEf",                
-});
+}); 
 
 redisCache.on('connect', () => {
     console.log('Redis client connected successfully!');
