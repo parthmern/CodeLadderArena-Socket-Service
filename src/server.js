@@ -10,7 +10,7 @@ const app = express();
 const httpServer = createServer(app); // http server using express app
 const redisCache = new Redis({
     host: process.env.REDIS_HOST,  
-    port: 17577,
+    port: "17577",
     password: "vCllaXi36UI32HKDRE2XFUcqwPIfSsEf",                
 });
 
@@ -92,5 +92,5 @@ app.post('/sendPayload', async (req, res) => {
 const PORT = process.env.PORT;
 
 httpServer.listen(PORT, () => {
-    console.log(`Socket Server is running on port ${PORT}`);
+    console.log(`Socket Server is running on port ${PORT}`, process.env.REDIS_HOST);
 }); 
